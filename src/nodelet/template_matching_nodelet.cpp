@@ -57,15 +57,42 @@
 
 namespace opencv_apps {
   class TemplateMatchingNodelet : public opencv_apps::Nodelet {
+
+      typedef opencv_apps::TemplateMatchingConfig Config;
+      typedef dynamic_reconfigure::Server<Config> ReconfigureServer;
+
     public:
       TemplateMatchingNodelet(){};
       ~TemplateMatchingNodelet(){};
       virtual void onInit() {
         Nodelet::onInit();
+        ////////////////////////////////////////////////////////
+        // Dynamic Reconfigure
+        ////////////////////////////////////////////////////////
+        reconfigure_server_ =
+          boost::make_shared<dynamic_reconfigure::Server<Config> >(*pnh_);
+        dynamic_reconfigure::Server<Config>::CallbackType f =
+          boost::bind(&TemplateMatchingNodelet::reconfigureCallback, this, _1, _2);
+        reconfigure_server_->setCallback(f);
         onInitPostProcess();
       };
       void unsubscribe(){};
-      void subscribe(){};
+      void subscribe()
+      {
+        img_sub_ = it_->subscribe("image", 1, &TemplateMatchingNodelet::imageCallback, this);
+      };
+    private:
+      void imageCallback(const sensor_msgs::ImageConstPtr& msg){
+      };
+      void reconfigureCallback(Config& config, uint32_t level){
+        boost::mutex::scoped_lock lock(mutex_);
+        config_ = config;
+      };
+      boost::mutex mutex_;
+      image_transport::Subscriber img_sub_;
+      boost::shared_ptr<image_transport::ImageTransport> it_;
+      Config config_;
+      boost::shared_ptr<ReconfigureServer> reconfigure_server_;
   };
 }
 
@@ -84,4 +111,4 @@ namespace template_matching{
 
 #include <pluginlib/class_list_macros.h>
 PLUGINLIB_EXPORT_CLASS(opencv_apps::TemplateMatchingNodelet, nodelet::Nodelet);
-//PLUGINLIB_EXPORT_CLASS(template_matching::TemplateMatchingNodelet, nodelet::Nodelet);
+PLUGINLIB_EXPORT_CLASS(template_matching::TemplateMatchingNodelet, nodelet::Nodelet);

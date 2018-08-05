@@ -1,0 +1,6 @@
+<launch>
+  <arg name="node_name" default="template_matching" />
+  <!-- template_matching -->
+  <node name="$(arg node_name)" pkg="opencv_apps" type="template_matching" output="screen">
+  </node>
+</launch>

@@ -36,7 +36,6 @@ generate_dynamic_reconfigure_options(
   cfg/FaceRecognition.cfg
   cfg/GoodfeatureTrack.cfg
   cfg/CornerHarris.cfg
-  #
   cfg/CamShift.cfg
   cfg/FBackFlow.cfg
   cfg/LKFlow.cfg

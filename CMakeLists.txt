@@ -49,6 +49,7 @@ generate_dynamic_reconfigure_options(
   cfg/HLSColorFilter.cfg
   cfg/HSVColorFilter.cfg
   cfg/WatershedSegmentation.cfg
+  cfg/TemplateMatchingConfig.cfg
   )
 
 ## Generate messages in the 'msg' folder
@@ -313,6 +314,9 @@ opencv_apps_add_nodelet(segment_objects src/nodelet/segment_objects_nodelet.cpp)
 # ./tvl1_optical_flow.cpp
 # ./videostab.cpp
 opencv_apps_add_nodelet(watershed_segmentation src/nodelet/watershed_segmentation_nodelet.cpp) # ./watershed.cpp
+
+# template matching
+opencv_apps_add_nodelet(template_matching src/nodelet/template_matching_nodelet.cpp) # ./template_matching.cpp
 
 # ros examples
 opencv_apps_add_nodelet(simple_example src/nodelet/simple_example_nodelet.cpp)

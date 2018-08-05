@@ -115,6 +115,10 @@
     <description>Nodelet to demonstrate the famous watershed segmentation algorithm in OpenCV: watershed()</description>
   </class>
 
+  <class name="opencv_apps/template_matching" type="opencv_apps::TemplateMatchingNodelet" base_class_type="nodelet::Nodelet">
+    <description>Nodelet of TemplateMatching algorithm in template_matching</description>
+  </class>
+
   <!--
       for backward compatibility, can be removed in M-turtle
   -->
@@ -140,11 +144,12 @@
   <class name="phase_corr/phase_corr" type="phase_corr::PhaseCorrNodelet" base_class_type="nodelet::Nodelet"/>
   <class name="segment_objects/segment_objects" type="segment_objects::SegmentObjectsNodelet" base_class_type="nodelet::Nodelet"/>
   <class name="simple_flow/simple_flow" type="simple_flow::SimpleFlowNodelet" base_class_type="nodelet::Nodelet"/>
- <class name="simple_example/simple_example" type="simple_example::SimpleExampleNodelet" base_class_type="nodelet::Nodelet"/>
-   <class name="simple_compressed_example/simple_compressed_example" type="simple_compressed_example::SimpleCompressedExampleNodelet" base_class_type="nodelet::Nodelet"/>
-   <class name="threshold/threshold" type="threshold::ThresholdNodelet" base_class_type="nodelet::Nodelet"/>
-   <class name="rgb_color_filter/rgb_color_filter" type="color_filter::RGBColorFilterNodelet" base_class_type="nodelet::Nodelet"/>
-   <class name="hls_color_filter/hls_color_filter" type="color_filter::HLSColorFilterNodelet" base_class_type="nodelet::Nodelet"/>
-   <class name="hsv_color_filter/hsv_color_filter" type="color_filter::HSVColorFilterNodelet" base_class_type="nodelet::Nodelet"/>
+  <class name="simple_example/simple_example" type="simple_example::SimpleExampleNodelet" base_class_type="nodelet::Nodelet"/>
+  <class name="simple_compressed_example/simple_compressed_example" type="simple_compressed_example::SimpleCompressedExampleNodelet" base_class_type="nodelet::Nodelet"/>
+  <class name="threshold/threshold" type="threshold::ThresholdNodelet" base_class_type="nodelet::Nodelet"/>
+  <class name="rgb_color_filter/rgb_color_filter" type="color_filter::RGBColorFilterNodelet" base_class_type="nodelet::Nodelet"/>
+  <class name="hls_color_filter/hls_color_filter" type="color_filter::HLSColorFilterNodelet" base_class_type="nodelet::Nodelet"/>
+  <class name="hsv_color_filter/hsv_color_filter" type="color_filter::HSVColorFilterNodelet" base_class_type="nodelet::Nodelet"/>
   <class name="watershed_segmentation/watershed_segmentation" type="watershed_segmentation::WatershedSegmentationNodelet" base_class_type="nodelet::Nodelet"/>
+  <class name="template_matching/template_matching" type="template_matching::TemplateMatchingNodelet" base_class_type="nodelet::Nodelet"/>
 </library>
